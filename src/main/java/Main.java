@@ -8,7 +8,7 @@ public class Main {
     public static void main(String[] args) {
 // не используем состояние
         final List<String> phrases = new LinkedList<>();
-//монада.gitignore
+//монада
         printDictionary(makeDictionary(getlexicon(phrases)));
     }
 
@@ -27,7 +27,11 @@ public class Main {
     //детерминированная функция, без side-effects
     public static List<String> makeDictionary(List<String> phrases) {
         //монада
-        return phrases.stream().flatMap(s -> Arrays.stream(s.split(" "))).distinct().sorted().collect(Collectors.toList());
+        return phrases.stream().
+                flatMap(s -> Arrays.stream(s.split(" "))).
+                distinct().
+                sorted().
+                collect(Collectors.toList());
     }
 
     //детермиированная функция
